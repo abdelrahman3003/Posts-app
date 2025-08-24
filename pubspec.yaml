@@ -18,8 +18,11 @@ dependencies:
 #  Service locatore
   get_it: ^8.2.0
 # Remote data
-  dio: ^4.0.6
+  dio: ^5.4.3+1
+  pretty_dio_logger: ^1.4.0
   internet_connection_checker: ^3.0.1
+# local storage
+  shared_preferences: ^2.5.3
   
 dev_dependencies:
   flutter_test:
