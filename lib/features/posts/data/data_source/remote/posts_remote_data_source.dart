@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:posts_app/core/network/api_constant.dart';
 import 'package:posts_app/features/posts/data/models/post_model.dart';
@@ -12,20 +10,19 @@ abstract class PostsRemoteDataSource {
   Future<void> updatePost(Post updatedPost);
 }
 
-class PostsRemoteDateImp implements PostsRemoteDataSource {
+class PostsRemoteDatdImp implements PostsRemoteDataSource {
   final Dio dio;
 
-  PostsRemoteDateImp(this.dio);
+  PostsRemoteDatdImp(this.dio);
   @override
   Future<List<PostModel>> getAllPosts() async {
     final response =
-        await dio.getUri(Uri.parse("${ApiConstant.baseUrl}/getPost"));
+        await dio.getUri(Uri.parse("${ApiConstant.baseUrl}/posts/"));
     if (response.statusCode == 200) {
-      List responseDecode = jsonDecode(response.data);
-      List<PostModel> postModelList = responseDecode
+      List responseDecode = response.data;
+      return responseDecode
           .map<PostModel>((item) => PostModel.fromJson(item))
           .toList();
-      return postModelList;
     } else {
       throw DioException(requestOptions: response.requestOptions);
     }
@@ -56,7 +53,8 @@ class PostsRemoteDateImp implements PostsRemoteDataSource {
 
   @override
   Future<void> updatePost(Post updatedPost) async {
-    final data = PostModel(title: updatedPost.title, body: updatedPost.body);
+    final data = PostModel(
+        id: updatedPost.id, title: updatedPost.title, body: updatedPost.body);
     final response = await dio.patchUri(
         Uri.parse("${ApiConstant.baseUrl}/${updatedPost.id}"),
         data: data.toJson());

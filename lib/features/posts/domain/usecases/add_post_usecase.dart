@@ -3,11 +3,11 @@ import 'package:posts_app/core/network/api_error_model.dart';
 import 'package:posts_app/features/posts/domain/entities/post.dart';
 import 'package:posts_app/features/posts/domain/repos/post_repo.dart';
 
-class GetAllPostsUsecase {
+class AddPostUsecase {
   final PostRepo postRepo;
 
-  GetAllPostsUsecase(this.postRepo);
-  Future<Either<ApiErrorModel, List<Post>>> call() async {
-    return postRepo.getAllPosts();
+  AddPostUsecase(this.postRepo);
+  Future<Either<ApiErrorModel, void>> call(Post post) async {
+    return await postRepo.addPost(post);
   }
 }

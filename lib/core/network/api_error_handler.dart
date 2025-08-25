@@ -28,7 +28,7 @@ class ErrorHandler {
       }
     }
 
-    return ApiErrorModel(message: "خطا غير معروف");
+    return ApiErrorModel(message: "Unknown error eccure");
   }
 }
 

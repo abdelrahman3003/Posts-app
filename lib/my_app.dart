@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:posts_app/core/theme/app_theme.dart';
+import 'package:posts_app/features/posts/presentation/view/screens/posts_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Posts",
       theme: appTheme,
-      home: Container(),
+      home: PostsPage(),
     );
   }
 }

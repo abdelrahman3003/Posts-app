@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:posts_app/core/utls/app_String.dart';
+import 'package:posts_app/core/strings/failure.dart';
 import 'package:posts_app/features/posts/data/models/post_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -19,19 +19,19 @@ class PostsLocalDataSourceImp implements PostsLocalDataSource {
         .map<Map<String, dynamic>>((postsModel) => postsModel.toJson())
         .toList();
     await sharedPreferences.setString(
-        AppString.cachPosts, jsonEncode(postsModelsToJson));
+        cachedPosts, jsonEncode(postsModelsToJson));
   }
 
   @override
   Future<List<PostModel>> getCachedPosts() async {
-    final String? jsonString = sharedPreferences.getString(AppString.cachPosts);
+    final String? jsonString = sharedPreferences.getString(cachedPosts);
     if (jsonString != null) {
       List jsonList = jsonDecode(jsonString);
       final List<PostModel> postModelList =
           jsonList.map<PostModel>((item) => PostModel.fromJson(item)).toList();
       return postModelList;
     } else {
-      throw AppString.dataEmpty;
+      throw dataEmpty;
     }
   }
 }
