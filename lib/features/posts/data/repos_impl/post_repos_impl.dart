@@ -59,7 +59,7 @@ class PostReposImpl implements PostRepo {
         return left(ErrorHandler.handle(error));
       }
     } else {
-      return left(ErrorHandler.handle(enternetFailure));
+      return left(ApiErrorModel(message: enternetFailure));
     }
   }
 }

@@ -32,7 +32,7 @@ class PostsRemoteDatdImp implements PostsRemoteDataSource {
   Future<void> addPost(Post post) async {
     final data = PostModel(id: post.id, title: post.title, body: post.body);
     final response = await dio.postUri(
-        Uri.parse("${ApiConstant.baseUrl}/addPost"),
+        Uri.parse("${ApiConstant.baseUrl}/posts"),
         data: data.toJson());
     if (response.statusCode == 201) {
     } else {
@@ -43,7 +43,7 @@ class PostsRemoteDatdImp implements PostsRemoteDataSource {
   @override
   Future<void> removePost(int postId) async {
     final response = await dio.deleteUri(
-      Uri.parse("${ApiConstant.baseUrl}/$postId"),
+      Uri.parse("${ApiConstant.baseUrl}/posts/$postId"),
     );
     if (response.statusCode == 200) {
     } else {
@@ -55,8 +55,9 @@ class PostsRemoteDatdImp implements PostsRemoteDataSource {
   Future<void> updatePost(Post updatedPost) async {
     final data = PostModel(
         id: updatedPost.id, title: updatedPost.title, body: updatedPost.body);
+
     final response = await dio.patchUri(
-        Uri.parse("${ApiConstant.baseUrl}/${updatedPost.id}"),
+        Uri.parse("${ApiConstant.baseUrl}/posts/${updatedPost.id}"),
         data: data.toJson());
     if (response.statusCode == 201) {
     } else {

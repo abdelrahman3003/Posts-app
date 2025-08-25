@@ -25,21 +25,22 @@ class AddDeleteUpdatePostBloc
       emit(LoadingAddDeleteUpdatePostState());
       if (event is AddPostEvent) {
         final result = await addPostUsecase(event.post);
-        _stateHandle(result, postWasAdded);
+        emit(_stateHandle(result, postWasAdded));
       } else if (event is UpdatePostEvent) {
         final result = await updatePostUsecase(event.updatePost);
-        _stateHandle(result, postWasUpdated);
+        emit(_stateHandle(result, postWasUpdated));
       } else if (event is DeletePostEvent) {
         final result = await deletePostUsecase(event.postId);
-        _stateHandle(result, postWasDeleted);
+        emit(_stateHandle(result, postWasDeleted));
       }
     });
   }
   AddDeleteUpdatePostState _stateHandle(
       Either<ApiErrorModel, void> result, String message) {
-    return result.fold(
-      (error) => ErrorAddDeleteUpdatePostState(error.message),
-      (data) => MessageAddDeleteUpdatePostState(message),
-    );
+    return result.fold((error) {
+      return ErrorAddDeleteUpdatePostState(error.message);
+    }, (data) {
+      return MessageAddDeleteUpdatePostState(message);
+    });
   }
 }
