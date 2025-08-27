@@ -18,8 +18,9 @@ class PostReposImpl implements PostRepo {
   Future<Either<ApiErrorModel, List<Post>>> getAllPosts() async {
     if (await networkInfo.isDeviceConnected) {
       try {
-        final result = await postsRemoteDataSource.getAllPosts();
-        return right(result);
+        final resultRemoteData = await postsRemoteDataSource.getAllPosts();
+        await postsLocalDataSource.cachPosts(resultRemoteData);
+        return right(resultRemoteData);
       } catch (error) {
         return left(ErrorHandler.handle(error));
       }

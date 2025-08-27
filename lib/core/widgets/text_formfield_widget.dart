@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:posts_app/core/theme/app_colors.dart';
 
 class TextFormfieldWidget extends StatelessWidget {
   const TextFormfieldWidget(
@@ -25,7 +26,7 @@ class TextFormfieldWidget extends StatelessWidget {
               borderSide: BorderSide(color: Colors.grey)),
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(color: Colors.blueAccent)),
+              borderSide: BorderSide(color: AppColors.primary)),
         ),
         validator: (value) => value!.isEmpty ? "this field is requred" : null);
   }

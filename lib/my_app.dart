@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:posts_app/core/theme/app_theme.dart';
 import 'package:posts_app/features/posts/presentation/view/screens/posts_page.dart';
 
 class MyApp extends StatelessWidget {
@@ -10,7 +9,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Posts",
-      theme: appTheme,
       home: PostsPage(),
     );
   }

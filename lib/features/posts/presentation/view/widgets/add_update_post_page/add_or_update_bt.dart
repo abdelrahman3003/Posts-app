@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:posts_app/core/theme/app_colors.dart';
+import 'package:posts_app/core/theme/app_styles.dart';
 
 class AddOrUpdateBt extends StatelessWidget {
   const AddOrUpdateBt({super.key, required this.isUpdate, this.onPressed});
@@ -9,12 +11,10 @@ class AddOrUpdateBt extends StatelessWidget {
     return ElevatedButton.icon(
       onPressed: onPressed,
       style: ButtonStyle(
-        backgroundColor: WidgetStateProperty.all(Colors.blueAccent),
+        backgroundColor: WidgetStateProperty.all(AppColors.primary),
       ),
-      label: Text(
-        isUpdate ? "Update" : "Add",
-        style: const TextStyle(color: Colors.white),
-      ),
+      label: Text(isUpdate ? "Update" : "Add",
+          style: AppTextStyles.style16Regular.copyWith(color: AppColors.white)),
       icon: Icon(
         isUpdate ? Icons.update : Icons.add,
         color: Colors.white,

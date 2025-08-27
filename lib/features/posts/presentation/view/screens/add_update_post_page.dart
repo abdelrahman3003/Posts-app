@@ -5,7 +5,7 @@ import 'package:posts_app/core/widgets/app_bar_widget.dart';
 import 'package:posts_app/core/widgets/text_formfield_widget.dart';
 import 'package:posts_app/features/posts/domain/entities/post.dart';
 import 'package:posts_app/features/posts/presentation/manager/add_delete_update_post_bloc/add_delete_update_post_bloc.dart';
-import 'package:posts_app/features/posts/presentation/view/widgets/add_update_post/add_or_update_bt.dart';
+import 'package:posts_app/features/posts/presentation/view/widgets/add_update_post_page/add_or_update_bt.dart';
 import 'package:posts_app/features/posts/presentation/view/widgets/post_page/loading_widget.dart';
 
 class AddUpdatePostPage extends StatefulWidget {
@@ -69,7 +69,8 @@ class _AddUpdatePostPageState extends State<AddUpdatePostPage> {
             TextFormfieldWidget(
                 controller: bodyController, title: "Body", isMaltiLines: true),
             SizedBox(height: 30),
-            AddOrUpdateBt(isUpdate: widget.isUpdate, onPressed: _addorUpdate)
+            AddOrUpdateBt(
+                isUpdate: widget.isUpdate, onPressed: () => _addorUpdate)
           ],
         ),
       ),

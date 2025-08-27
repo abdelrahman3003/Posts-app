@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
@@ -30,7 +28,6 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
   PostsState _stateHandle(Either<ApiErrorModel, List<Post>> result) {
     return result.fold(
       (error) {
-        log("------------${error.message}");
         return ErrorPostsState(error.message);
       },
       (data) => LoadedPostsState(data),
