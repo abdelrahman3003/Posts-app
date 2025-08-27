@@ -70,7 +70,7 @@ class _AddUpdatePostPageState extends State<AddUpdatePostPage> {
                 controller: bodyController, title: "Body", isMaltiLines: true),
             SizedBox(height: 30),
             AddOrUpdateBt(
-                isUpdate: widget.isUpdate, onPressed: () => _addorUpdate)
+                isUpdate: widget.isUpdate, onPressed: () => _addorUpdate())
           ],
         ),
       ),
