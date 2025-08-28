@@ -1,16 +1,22 @@
-# posts_app
+A simple Flutter application that allows users to view, update, delete, and refresh posts using the JSONPlaceholder API
+.
 
-A new Flutter project.
+🚀 Features
 
-## Getting Started
+📖 View a list of posts
 
-This project is a starting point for a Flutter application.
+✏️ Update any post
 
-A few resources to get you started if this is your first Flutter project:
+🗑️ Delete a post
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+🔄 Refresh posts list
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+🛠️ Technologies Used
+
+Flutter (Dart)
+
+Riverpod / Provider / Bloc (state management) (update with what you actually used)
+
+Dio / Http (for API calls)
+
+JSONPlaceholder API (mock API for testing)
