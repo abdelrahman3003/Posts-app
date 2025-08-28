@@ -1,22 +1,36 @@
-A simple Flutter application that allows users to view, update, delete, and refresh posts using the JSONPlaceholder API
-.
+Posts App
+
+A Flutter 3.27.2 application that manages posts with full CRUD operations (view, update, delete, refresh).
+The app uses BLoC for state management, Dio for API requests, and supports offline handling with SharedPreferences.
 
 🚀 Features
 
-📖 View a list of posts
+📖 Fetch and display posts from API
 
 ✏️ Update any post
 
 🗑️ Delete a post
 
-🔄 Refresh posts list
+🔄 Pull-to-refresh posts
+
+📶 Internet connectivity check before API calls
+
+💾 Offline cache using SharedPreferences (load posts even without internet)
 
 🛠️ Technologies Used
 
-Flutter (Dart)
+Flutter 3.27.2
 
-Riverpod / Provider / Bloc (state management) (update with what you actually used)
+BLoC (flutter_bloc) → state management
 
-Dio / Http (for API calls)
+Dio → HTTP client for API requests
 
-JSONPlaceholder API (mock API for testing)
+Connectivity Plus → check internet status
+
+SharedPreferences → offline caching
+
+JSONPlaceholder API → mock REST API
+
+
+Setup & Installation
+git clone https://github.com/your-username/posts_app.git
